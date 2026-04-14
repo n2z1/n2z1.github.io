@@ -1,0 +1,349 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MRON WARZONE — BLACK EDITION</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;  /* PURE BLACK - DEEPER */
+            font-family: 'Segoe UI', 'Orbitron', 'Roboto', 'Helvetica Neue', sans-serif;
+            color: #e0e0e0;
+            line-height: 1.5;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.03) 0%, #000000 95%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #050505;  /* DEEPER BLACK */
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1), 0 8px 20px rgba(0,0,0,0.9);
+            border: 1px solid #0a2a2a;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #00ccff;
+            padding-bottom: 28px;
+            margin-bottom: 38px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00ccff, #0088aa, #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            font-weight: 900;
+            text-shadow: 0 0 5px #00ccff80;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #00ccff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* IMAGE STYLES - flexible & responsive */
+        .img-wrapper {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .custom-img {
+            max-width: 100%;
+            border-radius: 18px;
+            border: 2px solid #00ccff;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .custom-img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 25px #00ccff;
+        }
+
+        .img-caption {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #00ccff;
+            font-family: monospace;
+        }
+
+        /* colorful text sections */
+        h2 {
+            font-size: 2rem;
+            border-left: 6px solid #00ccff;
+            padding-left: 20px;
+            margin: 40px 0 20px 0;
+            color: #88ddff;
+            text-shadow: 0 0 3px #0088aa;
+        }
+
+        .highlight {
+            background: #0a0a0a;
+            padding: 20px 24px;
+            border-radius: 20px;
+            margin: 24px 0;
+            border-left: 5px solid #00ccff;
+            color: #dddddd;
+            font-weight: 500;
+            transition: 0.1s linear;
+        }
+
+        .highlight strong {
+            color: #00ccff;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #0a2a1a;
+            color: #88ffaa;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-left: 12px;
+            border: 1px solid #00ffaa;
+            box-shadow: 0 0 6px #00ffaa;
+        }
+
+        .free-shout {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background: #050505;
+            padding: 28px 18px;
+            border-radius: 60px;
+            margin: 48px 0;
+            border: 2px solid #00ccff;
+            color: #00ccff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 8px #0088aa;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 2px #0088aa; border-color: #00ccff; }
+            100% { text-shadow: 0 0 12px #00ccff; border-color: #00ffff; }
+        }
+
+        /* DISCORD BUTTON STYLES */
+        .discord-section {
+            text-align: center;
+            margin: 40px 0 30px 0;
+        }
+
+        .discord-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #5865F2, #404EED);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Segoe UI', 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffffaa;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+            text-transform: uppercase;
+        }
+
+        .discord-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px #5865F2;
+            background: linear-gradient(135deg, #404EED, #5865F2);
+            border-color: #ffffff;
+        }
+
+        .discord-button small {
+            font-size: 0.8rem;
+            display: block;
+            color: #cccccc;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 1px solid #0a2a2a;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #5588aa;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #88ddff;
+            text-decoration: underline;
+        }
+
+        .update-date {
+            background: #0a0a0a;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-family: monospace;
+            color: #00ccff;
+        }
+
+        .embed-mimic {
+            background: #0a0505;
+            border: 1px solid #00ccff;
+            border-radius: 14px;
+            padding: 12px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #88ddff;
+            text-align: center;
+        }
+
+        a {
+            color: #00ccff;
+        }
+        /* special colored text spans */
+        .warzone-text {
+            color: #ff6666;
+        }
+        .verdansk {
+            color: #66ffcc;
+            font-weight: bold;
+        }
+        .highlight-purple {
+            color: #c084fc;
+        }
+        button {
+            background: #00ccff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ MRON WARZONE ⚡</h1>
+            <div class="tagline"> REVIVING VERDANSK, REBIRTH & MORE</div>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- 📷 HOW TO ADD IMAGES:                           -->
+        <!-- ============================================= -->
+        <!-- 1. Find any image online (Imgur, Discord CDN, etc.) -->
+        <!-- 2. Copy its direct link (ends with .jpg/.png/.gif)  -->
+        <!-- 3. Replace "YOUR_IMAGE_URL_HERE" inside src=""       -->
+        <!-- 4. (Optional) Change caption text                   -->
+        <!-- ============================================= -->
+
+        <!-- EXAMPLE IMAGE 1 - Banner style (replace URL) -->
+        <div class="img-wrapper">
+            <img class="custom-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493431802176733235/image.png?ex=69def240&is=69dda0c0&hm=2fa8dd75be038ad60ad9289951cda47662d5cf94fa435b200c3abee7d43c0fb6&" alt="MRON Warzone Banner" style="width:100%; max-height: 380px; object-fit: cover;">
+            <div class="img-caption"></div>
+        </div>
+
+        <div class="embed-mimic">
+            📁 MRON Mod · <span class="warzone-text">WARZONE 1 REVIVAL</span>
+        </div>
+
+        <h2>🎯 MRON Mod - <span class="verdansk">Warzone 1 revival</span></h2>
+        <p><strong class="warzone-text">MRON Mod</strong> was a modification for free cracked <span style="color:#88ddff;">Modern Warfare 2019</span>. Started in February 2024 by <span class="highlight-purple">2 German enthusiasts</span>, it quickly found a community of <strong>OG Warzone fans</strong>.</p>
+        <p>MRON had 2 directions: <span style="color:#88ffaa;">✅ Retail (Steam MW)</span> and <span style="color:#88ddff;">🔧 Cracked (1.20 with only Verdansk)</span>.</p>
+
+        <!-- EXAMPLE IMAGE 2 - Gameplay / Logo (replace URL) -->
+        <div class="img-wrapper">
+            <img class="custom-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493432623861596170/unnamed.png?ex=69def304&is=69dda184&hm=ec74ef7f2c667f265a49195dac3f1ab652e135450cb26c6c7a3066b3a44f209c&" alt="Verdansk Screenshot">
+            <div class="img-caption">📍 VERDANSK MAP</div>
+        </div>
+
+        <h2>🔥 Key Milestones 🔥</h2>
+        <div class="highlight">
+            📅 <strong>March 2024</strong> — Our great modders were able to launch Modern Warfare matches with <strong style="color:#88ddff;">Black Ops: Cold War</strong> and <strong style="color:#66ffaa;">Vanguard</strong> weapons enabled.
+        </div>
+        <div class="highlight">
+            📅 <strong>June 2024</strong> — We managed to add <strong style="color:#66ffff;">Rebirth and Fortunes Keep</strong> back to official Steam version of Modern Warfare, porting all main modes from old Verdansk's version <em>(not possible on Battle.net)</em>.
+        </div>
+        
+        <!-- NEW MILESTONE - Version 5.1 Battle.net Support -->
+        <div class="highlight">
+            📅 <strong>December 2024 — Version 5.1 Released!</strong> — Since the release of Version 5.1, <strong style="color:#88ddff;">Battle.net is FINALLY SUPPORTED!</strong> (Only the AIO, not Rebirth or Verdansk)
+        </div>
+
+        <!-- EXAMPLE IMAGE 3 - Rebirth Island (replace URL) -->
+        <div class="img-wrapper">
+            <img class="custom-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493432903470682163/unnamed_1.png?ex=69def346&is=69dda1c6&hm=ca82137a4565b9ae6414fdf4a6cbdc8f128924f792d06ee7697a2baf0046028c&" alt="Rebirth Island">
+            <div class="img-caption">🏝️ REBIRTH ISLAND</div>
+        </div>
+
+        <div class="free-shout">
+            🔥 MRON WAS FREE & WILL ALWAYS BE FREE! 🔥
+        </div>
+
+        <h2>📡 Project Status</h2>
+        <p>Status of the project MRON: <strong style="color:#aaffaa; font-size:1.3rem;">WORKING</strong> <span class="status-badge">✔️ 14/04/2026</span></p>
+        <p style="margin-top: 10px; color:#bbbbbb;">✅ Active development — 100% free. No paywalls, no fake invites.</p>
+
+        <!-- ============================================= -->
+        <!-- 🎮 DISCORD LINK - DOWNLOAD MRON AIO            -->
+        <!-- ============================================= -->
+        <div class="discord-section">
+            <a href="https://discord.gg/mronwarzone" target="_blank" class="discord-button">
+                💬 JOIN THE DISCORD 💬
+                <small>To download MRON AIO → Click here</small>
+            </a>
+            <p style="margin-top: 12px; color: #00ccff; font-size: 0.85rem;">
+                
+            </p>
+        </div>
+<div style="text-align: center; margin: 20px 0;">
+    <a href="gallery.html" style="display: inline-block; background: #00ccff; color: #000; font-weight: bold; padding: 12px 28px; border-radius: 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 0 15px #00ccff;">📸 VIEW SCREENSHOT GALLERY</a>
+</div>
+        
+
+
+
+ <div class="footer">
+            <div class="footer-links">
+                <span></span>
+                <span class="update-date">2026-04-14
+            <div style="font-size: 1rem; margin-top: 12px;">
+                MRON WARZONE 
+            </div>
+     
+    
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MRON WARZONE — SCREENSHOT GALLERY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', 'Orbitron', 'Roboto', 'Helvetica Neue', sans-serif;
+            color: #e0e0e0;
+            line-height: 1.5;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.03) 0%, #000000 95%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #050505;
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1), 0 8px 20px rgba(0,0,0,0.9);
+            border: 1px solid #0a2a2a;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #00ccff;
+            padding-bottom: 28px;
+            margin-bottom: 38px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00ccff, #0088aa, #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            font-weight: 900;
+            text-shadow: 0 0 5px #00ccff80;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #00ccff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #00ccff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #00ccff22;
+            box-shadow: 0 0 10px #00ccff;
+        }
+
+        /* GALLERY GRID */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            background: #0a0a0a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #0a2a2a;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+            border-color: #00ccff;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #0a2a2a;
+            transition: opacity 0.2s;
+        }
+
+        .gallery-item:hover .gallery-img {
+            opacity: 0.85;
+        }
+
+        .gallery-caption {
+            padding: 12px;
+            font-size: 0.85rem;
+            color: #00ccff;
+            font-family: monospace;
+            background: #050505;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-size: 1.8rem;
+            border-left: 6px solid #00ccff;
+            padding-left: 20px;
+            margin: 50px 0 25px 0;
+            color: #88ddff;
+        }
+
+        /* LIGHTBOX STYLES - makes images bigger when clicked */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 3px solid #00ccff;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 204, 255, 0.5);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #00ccff;
+            font-family: monospace;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            margin: 0 auto;
+            width: fit-content;
+            border-radius: 30px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #00ccff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-lightbox:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00ccff;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 1px solid #0a2a2a;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #5588aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📸 MRON WARZONE — GALLERY</h1>
+            <div class="tagline">SCREENSHOTS · GAMEPLAY · MEMORIES</div>
+            <a href="FILL WITH WEBSITE LINK" class="FILL WITH WEBSITE LINK">← BACK TO MAIN PAGE</a>
+        </div>
+
+        <h2 class="section-title">🎮 VERDANSK SCREENSHOTS</h2>
+        
+        <div class="gallery">
+            <!-- GALLERY ITEM 1 -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493441278460035194/unnamed_8.png?ex=69defb13&is=69dda993&hm=bf2adec1994cdb266c45825e265eac780ce92bce8466d1725127e75b3495dc2f&', '📍 VERDANSK')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493441278460035194/unnamed_8.png?ex=69defb13&is=69dda993&hm=bf2adec1994cdb266c45825e265eac780ce92bce8466d1725127e75b3495dc2f&" alt="Screenshot 1">
+                <div class="gallery-caption">📍 VERDANSK</div>
+            </div>
+
+            <!-- GALLERY ITEM 2 -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493440986536349696/unnamed_5.png?ex=69defacd&is=69dda94d&hm=67e2e3fe2f615c05997999b0b60f4e51ee06b282241aa57756d525316afcd7ab&', '🔥 DROPPING IN')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493440986536349696/unnamed_5.png?ex=69defacd&is=69dda94d&hm=67e2e3fe2f615c05997999b0b60f4e51ee06b282241aa57756d525316afcd7ab&" alt="Screenshot 2">
+                <div class="gallery-caption">🔥 DROPPING IN</div>
+            </div>
+
+            <!-- GALLERY ITEM 3 -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493441570563821688/unnamed_9.png?ex=69defb59&is=69dda9d9&hm=d51c08edecc5ae3e94610f41228c07bb7f1570044b274eb612d2a07b58363180&', '💀 Plunder Mode')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493441570563821688/unnamed_9.png?ex=69defb59&is=69dda9d9&hm=d51c08edecc5ae3e94610f41228c07bb7f1570044b274eb612d2a07b58363180&" alt="Screenshot 3">
+                <div class="gallery-caption">💀 Plunder Mode</div>
+            </div>
+
+            <!-- GALLERY ITEM 4 -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493444632594354276/unnamed_13.png?ex=69defe33&is=69ddacb3&hm=97b19d4c5a89ca503be524a01af0d1aa0b1115d70b6971e302e064dfaf38f467&', '🏙️ Caldera')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493444632594354276/unnamed_13.png?ex=69defe33&is=69ddacb3&hm=97b19d4c5a89ca503be524a01af0d1aa0b1115d70b6971e302e064dfaf38f467&" alt="">
+                <div class="gallery-caption">🏙️ Caldera</div>
+            </div>
+
+            <!-- GALLERY ITEM 5 -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493444664148230184/unnamed_14.png?ex=69defe3a&is=69ddacba&hm=60eaccdd7b55eff26fe1e40ebc609a7e38c87467c957f087bb3b8b14fbabd385&', '🚁 Caldera Stadium')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493444664148230184/unnamed_14.png?ex=69defe3a&is=69ddacba&hm=60eaccdd7b55eff26fe1e40ebc609a7e38c87467c957f087bb3b8b14fbabd385&" alt="">
+                <div class="gallery-caption">🚁 Caldera Stadium</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">🏝️ REBIRTH ISLAND SCREENSHOTS</h2>
+        
+        <div class="gallery">
+            <!-- GALLERY ITEM 1 (Rebirth) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493440488886501556/unnamed_3.png?ex=69defa57&is=69dda8d7&hm=93c7ecb6c9e931efb5dd29abfa5c1384ed76dac6ddc497e4ebb1763d780cc8cd&', '🏝️ REBIRTH')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493440488886501556/unnamed_3.png?ex=69defa57&is=69dda8d7&hm=93c7ecb6c9e931efb5dd29abfa5c1384ed76dac6ddc497e4ebb1763d780cc8cd&" alt="Rebirth 1">
+                <div class="gallery-caption">🏝️ REBIRTH</div>
+            </div>
+
+            <!-- GALLERY ITEM 2 (Rebirth) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493440478950068285/unnamed_2.png?ex=69defa54&is=69dda8d4&hm=b16b9a0f8ce4ca11584d6a4b2e1d55d57e1988ea21736fffefec6759703180eb&', '🔫 PRISON ROOFTOP')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493440478950068285/unnamed_2.png?ex=69defa54&is=69dda8d4&hm=b16b9a0f8ce4ca11584d6a4b2e1d55d57e1988ea21736fffefec6759703180eb&" alt="Rebirth 2">
+                <div class="gallery-caption">🔫 PRISON ROOFTOP</div>
+            </div>
+
+            <!-- GALLERY ITEM 3 (Rebirth) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493440493772603472/unnamed_4.png?ex=69defa58&is=69dda8d8&hm=c379e33c380e3734e9beeab606f57b7e3428134b61be03255c4ee5b2da18ad7e&', '⚡ CONTROL CENTER')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493440493772603472/unnamed_4.png?ex=69defa58&is=69dda8d8&hm=c379e33c380e3734e9beeab606f57b7e3428134b61be03255c4ee5b2da18ad7e&" alt="Rebirth 3">
+                <div class="gallery-caption">⚡ CONTROL CENTER</div>
+            </div>
+
+            <!-- GALLERY ITEM 4 (Rebirth) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493445188482367499/unnamed_15.png?ex=69defeb7&is=69ddad37&hm=a228c574bcc2c873dcd3235553bd93910197c4982cc82b2e1d9c7bf660fa6e3e&', '🏚️ REBIRTH PRISON TOP')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493445188482367499/unnamed_15.png?ex=69defeb7&is=69ddad37&hm=a228c574bcc2c873dcd3235553bd93910197c4982cc82b2e1d9c7bf660fa6e3e&" alt="">
+                <div class="gallery-caption">🏚️ REBIRTH PRISON TOP</div>
+            </div>
+
+            <!-- GALLERY ITEM 5 (Rebirth) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493445227174690836/unnamed_16.png?ex=69defec1&is=69ddad41&hm=ce76e66f2b44a64e724bdcb11bb27a0ffc414eaf5ed56053deffc00a1a848522&', '🌊 REBIRTH WATERFRONT')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493445227174690836/unnamed_16.png?ex=69defec1&is=69ddad41&hm=ce76e66f2b44a64e724bdcb11bb27a0ffc414eaf5ed56053deffc00a1a848522&" alt="">
+                <div class="gallery-caption">🌊 REBIRTH WATERFRONT</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">🖥️ MRON AIO & MENU SCREENSHOTS</h2>
+        
+        <div class="gallery">
+            <!-- GALLERY ITEM 1 (Menu) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493442305863061676/unnamed_10.png?ex=69defc08&is=69ddaa88&hm=056c28b9aab46f9a9ef657d9a80b61c2a75e62e1d8cdbe1f1b43fd95c1e23383&', '🎛️ MRON AIO Loading into Rebirth')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493442305863061676/unnamed_10.png?ex=69defc08&is=69ddaa88&hm=056c28b9aab46f9a9ef657d9a80b61c2a75e62e1d8cdbe1f1b43fd95c1e23383&" alt="Menu 1">
+                <div class="gallery-caption">🎛️ MRON AIO Loading into Rebirth</div>
+            </div>
+
+            <!-- GALLERY ITEM 2 (Menu) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493442654183096410/unnamed_11.png?ex=69defc5b&is=69ddaadb&hm=fa5f6595b6b821d23204c3af18f066b8a0837a152f3039691260c20a8adecb07&', '⚙️ SETTINGS & CONFIG')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493442654183096410/unnamed_11.png?ex=69defc5b&is=69ddaadb&hm=fa5f6595b6b821d23204c3af18f066b8a0837a152f3039691260c20a8adecb07&" alt="Menu 2">
+                <div class="gallery-caption">⚙️ SETTINGS & CONFIG</div>
+            </div>
+
+            <!-- GALLERY ITEM 3 (Menu) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493443102935879822/unnamed_12.png?ex=69defcc6&is=69ddab46&hm=1873df3b24530ba9ef7e1b30afd6b3c4c51af20ab260c9dc653be8aefcd11d3d&', '💥 LOADOUT EDITOR')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493443102935879822/unnamed_12.png?ex=69defcc6&is=69ddab46&hm=1873df3b24530ba9ef7e1b30afd6b3c4c51af20ab260c9dc653be8aefcd11d3d&" alt="Menu 3">
+                <div class="gallery-caption">💥 LOADOUT EDITOR</div>
+            </div>
+
+            <!-- GALLERY ITEM 4 (Menu) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493446622711910471/unnamed_17.png?ex=69df000d&is=69ddae8d&hm=dbac58c9542144975eb3902a7e294bbca1b20085b5ab33b93233562b0b1e8323&', '🔧 MRON AIO UNLOCK ALL')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493446622711910471/unnamed_17.png?ex=69df000d&is=69ddae8d&hm=dbac58c9542144975eb3902a7e294bbca1b20085b5ab33b93233562b0b1e8323&" alt="">
+                <div class="gallery-caption">🔧 MRON AIO UNLOCK ALL</div>
+            </div>
+
+            <!-- GALLERY ITEM 5 (Menu) -->
+            <div class="gallery-item" onclick="openLightbox('https://cdn.discordapp.com/attachments/1486802458159087688/1493446628009312346/unnamed_18.png?ex=69df000f&is=69ddae8f&hm=390ea37bb60ffad9d81dda7e268970b7b8b5151479b9465f02f3d22d4889f10e&', '📊 MRON AIO WARZONE MODE')">
+                <img class="gallery-img" src="https://cdn.discordapp.com/attachments/1486802458159087688/1493446628009312346/unnamed_18.png?ex=69df000f&is=69ddae8f&hm=390ea37bb60ffad9d81dda7e268970b7b8b5151479b9465f02f3d22d4889f10e&" alt="">
+                <div class="gallery-caption">📊 MRON AIO WARZONE MODE</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 0.8rem;">
+                MRON WARZONE — SCREENSHOT GALLERY | Updated: 14/04/2026
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX HTML -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(imageUrl, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = imageUrl;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            
+            // Prevent body scrolling when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
